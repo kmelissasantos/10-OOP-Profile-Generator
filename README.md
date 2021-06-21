@@ -4,13 +4,6 @@
 Description
 This project is a Node.js command-line application that takes in information about employees on a team, and generates an HTML webpage that displays the user input data.
 
-# Table of Comtents
-Installation
-Usage
-License
-Tests
-Questions
-
 # Installation
 Clone this repository using git clone!
 
