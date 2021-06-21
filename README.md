@@ -8,7 +8,7 @@ This project is a Node.js command-line application that takes in information abo
 Clone this repository using git clone!
 
 # Usage
-In the command line of your terminal, type "node index" to be prompted with questions screenshot
+In the command line of your terminal, type "node index" to be prompted with questions
 
 # Questions
 Github: kmelissasantos Email: melissa.santosxo@gmail.com
