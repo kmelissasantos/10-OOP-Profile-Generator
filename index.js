@@ -8,7 +8,7 @@ const managerQuestions = [
     {
         type: 'input',
         name: 'name',
-        message: "Please provide your name",
+        message: "Please provide your name here",
         validate: (input) => {
             if (input === '') {
                 return "Please make sure you provide your name here."
@@ -19,7 +19,7 @@ const managerQuestions = [
     {
         type: 'input',
         name: 'id',
-        message: "Please provide your ID",
+        message: "Please provide your ID here",
         validate: (input) => {
             if (input === '') {
                 return "Please make sure you provide your ID here."
@@ -30,7 +30,7 @@ const managerQuestions = [
     {
         type: 'input',
         name: 'email',
-        message: "Please provide your email?",
+        message: "Please provide your email here",
         validate: (input) => {
             if (input === '') {
                 return "Please make sure you provide your email here."
@@ -41,7 +41,7 @@ const managerQuestions = [
     {
         type: 'input',
         name: 'officeNumber',
-        message: "What is your office number?",
+        message: "Please provide your office number here",
         validate: (input) => {
             if (input === '') {
                 return "Please make sure you provide your office number here."
@@ -54,4 +54,110 @@ const managerQuestions = [
         name: 'addMembers',
         message: "Would you like to add more members?"
     }
+]
+
+const engineerQuestions = [
+    {
+        type: 'input',
+        name: 'name',
+        message: "Please provide your name here",
+        validate: (input) => {
+            if (input === '') {
+                return "Please make sure you provide your name here."
+            }
+            return true;
+        }
+    },
+    {
+        type: 'input',
+        name: 'id',
+        message: "Please provide your ID here",
+        validate: (input) => {
+            if (input === '') {
+                return "Please make sure you provide your ID here."
+            }
+            return true;
+        }
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: "Please provide your email here",
+        validate: (input) => {
+            if (input === '') {
+                return "Please make sure you provide your email here"
+            }
+            return true;
+        }
+    },
+    {
+        type: 'input',
+        name: 'github',
+        message: "Please provide your github here",
+        validate: (input) => {
+            if (input === '') {
+                return "Please make sure you provide your github here."
+            }
+            return true;
+        }
+    },
+    {
+        type: 'confirm',
+        name: 'addMembers',
+        message: "Would you like to add more members?"
+    }
+
+]
+
+const internQuestions = [
+    {
+        type: 'input',
+        name: 'name',
+        message: "Please provide your name here",
+        validate: (input) => {
+            if (input === '') {
+                return "Please make sure you provide your name here."
+            }
+            return true;
+        }
+    },
+    {
+        type: 'input',
+        name: 'id',
+        message: "Please provide your ID here",
+        validate: (input) => {
+            if (input === '') {
+                return "Please make sure you provide your ID here."
+            }
+            return true;
+        }
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: "Please provide your email here",
+        validate: (input) => {
+            if (input === '') {
+                return "Please make sure you provide your email here."
+            }
+            return true;
+        }
+    },
+    {
+        type: 'input',
+        name: 'school',
+        message: "Please provide school attended here",
+        validate: (input) => {
+            if (input === '') {
+                return "Please make sure you provide your school here."
+            }
+            return true;
+        }
+    },
+    {
+        type: 'confirm',
+        name: 'addMembers',
+        message: "Would you like to add more members?"
+    }
+
 ]
