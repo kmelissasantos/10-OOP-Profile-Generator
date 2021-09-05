@@ -14,5 +14,20 @@ const managerQuestions = [
         type: 'input',
         name: 'id',
         message: "Please provide your ID"
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: "Please provide your email?"
+    },
+    {
+        type: 'input',
+        name: 'officeNumber',
+        message: "What is your office number?"
+    },
+    {
+        type: 'confirm',
+        name: 'addMembers',
+        message: "Would you like to add more members?"
     }
 ]
