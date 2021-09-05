@@ -7,7 +7,7 @@ test('checks name, id, email', () => {
 
     expect(nellie.id).toEqual(expect.any(Number));
 
-    expect(jeri.email).toEqual(expect.any(String));
+    expect(nellie.email).toEqual(expect.any(String));
 })
 
 test('testing getname, getid, getemail, getrole', () => {
