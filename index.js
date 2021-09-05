@@ -160,4 +160,31 @@ const internQuestions = [
         message: "Would you like to add more members?"
     }
 
-]
+],
+
+function writeToFile(fileName, data) {
+    fs.writeFile(`./dist/${fileName}`, generated(data), err => {
+        if (err) {
+            throw err
+        };
+        console.log('File has been successfully created!')
+    });
+
+};
+
+function init() {
+    inquirer.prompt(managerQuestions).then(function(data) {
+        let fileName = "generatedindex.html"
+        if(data.addMembers === true){
+            inquirer.prompt(engineerQuestions)
+        } else if (data.addMembers === true) {
+            inquirer.prompt(internQuestions)
+        }else {
+            writeToFile(fileName, data);
+        }
+
+    })
+};
+
+// initialize app
+init(); 
