@@ -3,8 +3,9 @@ const inquirer = require('inquirer');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
+const generatedMarkdown = require('./dist/generated');
 
-const managerQuestions = [
+const managerQs = [
     {
         type: 'input',
         name: 'name',
@@ -40,7 +41,7 @@ const managerQuestions = [
     },
     {
         type: 'input',
-        name: 'officeNumber',
+        name: 'officeNum',
         message: "Please provide your office number here",
         validate: (input) => {
             if (input === '') {
@@ -56,7 +57,7 @@ const managerQuestions = [
     }
 ]
 
-const engineerQuestions = [
+const engineerQs = [
     {
         type: 'input',
         name: 'name',
@@ -109,7 +110,7 @@ const engineerQuestions = [
 
 ]
 
-const internQuestions = [
+const internQs = [
     {
         type: 'input',
         name: 'name',
@@ -160,31 +161,83 @@ const internQuestions = [
         message: "Would you like to add more members?"
     }
 
-],
+]
 
-function writeToFile(fileName, data) {
-    fs.writeFile(`./dist/${fileName}`, generated(data), err => {
+
+let team = [];
+
+function writeToFile() {
+    console.log(team);
+    fs.writeFile(`./dist/index.html`, generatedMarkdown(team), err => {
         if (err) {
             throw err
         };
-        console.log('File has been successfully created!')
+        console.log('File has been created')
     });
 
 };
 
-function init() {
-    inquirer.prompt(managerQuestions).then(function(data) {
-        let fileName = "generatedindex.html"
-        if(data.addMembers === true){
-            inquirer.prompt(engineerQuestions)
-        } else if (data.addMembers === true) {
-            inquirer.prompt(internQuestions)
-        }else {
-            writeToFile(fileName, data);
-        }
 
+function init() {
+    inquirer.prompt(managerQs).then(function(data) {
+        let managerData = new Manager (data.name, data.id, data.email, data.officeNumber)
+        team.push(managerData);
+
+        if(data.addMembers === true){
+            newTeam();
+        }else{
+            writeToFile()
+        }
+       
     })
 };
+
+function newTeam() {
+    inquirer.prompt(
+        [
+            {
+                type: 'list',
+                name: 'pickTeam',
+                message: "Would you like to add an Engineer or Intern?",
+                choices: ['Engineer', 'Intern', 'Cancel']
+            }
+        ]
+    ).then(function(data){
+        if (data.pickTeam === 'Engineer') {
+            newEngineer();
+        } else if (data.pickTeam === 'Intern') {
+            newIntern();
+        } else writeToFile();
+    })
+}
+
+function newEngineer() {
+    inquirer.prompt(engineerQs).then(function(data){
+
+    let engineerData = new Engineer (data.name, data.id, data.email, data.github)
+    teamList.push(engineerData);
+    if(data.addMembers === true){
+        newTeam();
+    }else{
+        writeToFile()
+    }
+    })
+    
+}
+
+function newIntern() {
+    inquirer.prompt(internQs).then(function(data){
+
+    let internData = new Intern (data.name, data.id, data.email, data.school)
+    team.push(internData);
+    if(data.addMembers === true){
+        newTeam();
+    }else{
+        writeToFile()
+    }
+    })
+    
+}
 
 // initialize app
 init(); 
