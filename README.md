@@ -12,3 +12,7 @@ In the command line of your terminal, type "node index" to be prompted with ques
 
 # Questions
 Github: kmelissasantos Email: melissa.santosxo@gmail.com
+
+#
+Video Walkthrough
+https://youtu.be/J4PgQYV2WgU
